@@ -15,13 +15,9 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->text('monday')->nullable();
-            $table->text('tuesday')->nullable();
-            $table->text('wednesday')->nullable();
-            $table->text('thursday')->nullable();
-            $table->text('friday')->nullable();
-            $table->text('saturday')->nullable();
-            $table->text('sunday')->nullable();
+            $table->string('day');
+            $table->text('iframe_url')->nullable();
+            $table->boolean('open')->default(true);
             $table->timestamps();
         });
     }

@@ -61,3 +61,4 @@ Route::put('/photos/update-photo-order', [PhotoController::class, 'order'])->nam
 
 //LOCATIONS
 Route::get('/locations', [LocationController::class, 'index'])->name('admin.location.index');
+Route::put('/locations/update-location/{id}', [LocationController::class, 'update'])->name('admin.location.update');

@@ -5,7 +5,7 @@
         v-for="photo in list"
         :key="photo.name"
         >
-        <img class="mx-auto" :src="photo.img" :alt="photo.name">
+        <img width="200" height="200" class="mx-auto" :src="photo.img" :alt="photo.name">
         <a @click="$emit('delete', photo.id)" class="cursor-pointer">Supprimer</a>
         </div>
     </draggable>
