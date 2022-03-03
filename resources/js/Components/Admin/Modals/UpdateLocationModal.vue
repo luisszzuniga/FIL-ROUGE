@@ -12,12 +12,12 @@
                     <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">{{ location.day }}</h3>
                     <div class="mt-2">
                         <label for="iframe" class="block text-sm font-medium text-gray-700">IFrame URL</label>
-                        <input :value="location.iframe_url" type="text" id="iframe" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <input ref="iframe" :value="location.iframe_url" type="text" id="iframe" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
 
                     <div class="mt-2">
                         <label for="open" class="block text-sm font-medium text-gray-700">Ouvert ?</label>
-                        <select class="block w-full mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-md" id="open">
+                        <select ref="open" class="block w-full mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-md" id="open">
                             <option value="true" :selected="location.open">Ouvert</option>
                             <option value="false" :selected="!location.open">Fermé</option>
                         </select>
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import { useForm } from '@inertiajs/inertia-vue3'
+
 export default {
     props: {
         id: Number,
@@ -44,6 +46,19 @@ export default {
     methods: {
         update() {
             
+            const form = useForm({
+                iframe_url: this.$refs.iframe.value,
+                open: this.$refs.open.value
+            })
+
+            form.put(route('admin.locations.update', this.location.id), {
+                preserveScroll: true,
+                onSuccess: () => {
+                    form.reset(),
+                    this.$emit('close')
+                }
+            });
+    
         }
     }
 }

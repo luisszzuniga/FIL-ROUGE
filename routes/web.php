@@ -60,5 +60,5 @@ Route::delete('/photos/delete-photo/{id}', [PhotoController::class, 'destroy'])-
 Route::put('/photos/update-photo-order', [PhotoController::class, 'order'])->name('admin.photos.order');
 
 //LOCATIONS
-Route::get('/locations', [LocationController::class, 'index'])->name('admin.location.index');
-Route::put('/locations/update-location/{id}', [LocationController::class, 'update'])->name('admin.location.update');
+Route::get('/locations', [LocationController::class, 'index'])->name('admin.locations.index');
+Route::put('/locations/update-location/{id}', [LocationController::class, 'update'])->name('admin.locations.update');

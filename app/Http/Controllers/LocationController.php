@@ -30,8 +30,16 @@ class LocationController extends Controller
      * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLocationRequest $request, Location $location)
+    public function update(UpdateLocationRequest $request, int $locationId)
     {
-        //
+        $location = Location::find($locationId);
+
+        $bool = $request->open === "true" ? true : false;
+
+        $location->iframe_url = $request->iframe_url;
+        $location->open = $bool;
+        $location->save();
+
+        return redirect()->route('admin.locations.index');
     }
 }
