@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePlateRequest extends FormRequest
@@ -13,7 +14,7 @@ class StorePlateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Gate::allows('admin', auth()->user()->id);
     }
 
     /**

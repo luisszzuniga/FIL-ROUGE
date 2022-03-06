@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout page="Locations">
         <div class="container w-full mx-auto pt-20">
             <h1 class="text-2xl mt-20">Emplacements</h1>
 

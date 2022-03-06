@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Admin;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePlateSizeRequest extends FormRequest
@@ -14,7 +16,7 @@ class UpdatePlateSizeRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Gate::allows('admin', auth()->user()->id);
     }
 
     /**

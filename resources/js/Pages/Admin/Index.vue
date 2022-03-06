@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout page="Menu">
         <div class="container w-full mx-auto pt-20">
             <!-- MENU -->
             <div class="flex justify-between mt-20">

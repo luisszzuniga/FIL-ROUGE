@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout page="Gallerie">
         <div class="container w-full mx-auto pt-20">
             <div class="flex justify-between mt-20">
                 <h1 class="text-2xl">Galerie de photos</h1>

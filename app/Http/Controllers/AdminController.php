@@ -35,6 +35,15 @@ class AdminController extends Controller
         ]);
     }
 
+    public function adminsIndex()
+    {
+        $admins = Admin::all();
+
+        return Inertia::render('Admin/Admins', [
+            'admins' => $admins
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

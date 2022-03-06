@@ -1,5 +1,5 @@
 <template>
-    <Navbar />
+    <Navbar :page="page"/>
     <div>
         <slot></slot>
     </div>
@@ -11,8 +11,12 @@ import Navbar from '../Components/Admin/Navbar';
 export default {
     components: {
         Navbar
-    }
+    },
 
+
+    props: {
+        page: String
+    }
 }
 </script>
 

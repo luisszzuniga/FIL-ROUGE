@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePhotoRequest extends FormRequest
@@ -13,7 +14,7 @@ class StorePhotoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Gate::allows('admin', auth()->user()->id);
     }
 
     /**
