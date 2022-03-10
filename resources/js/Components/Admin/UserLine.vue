@@ -47,7 +47,11 @@ export default {
                 changer: this.changeLoyaltyPoints
             })
 
-            form.put(route('admin.loyalty.change', this.user.id))
+            form.put(route('admin.loyalty.change', this.user.id), {
+                onSuccess: () => {
+                    this.changeLoyaltyPoints = 0
+                }
+            })
         }
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateAdminRequest;
 use App\Models\Category;
 use App\Models\Plate;
 use App\Models\PlateSize;
+use App\Models\User;
 use Inertia\Inertia;
 
 class AdminController extends Controller
@@ -37,22 +38,17 @@ class AdminController extends Controller
 
     public function adminsIndex()
     {
-        $admins = Admin::all();
+        $adminsIds = Admin::all();
+        $admins = [];
+        foreach ($adminsIds as $adminId) {
+            $admins[] = User::find($adminId->id);
+        }
 
         return Inertia::render('Admin/Admins', [
             'admins' => $admins
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -65,39 +61,6 @@ class AdminController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateAdminRequest  $request
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateAdminRequest $request, Admin $admin)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -107,6 +70,11 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-        //
+        $admins = Admin::all();
+        if ($admins->count() < 2) {
+            return redirect(route('admin.admins.index'))->with([
+                'error' => 'Vous ne pouvez pas supprimer le dernier administrateur du site.'
+            ]);
+        }
     }
 }

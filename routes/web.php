@@ -67,4 +67,5 @@ Route::prefix('/admin')->middleware(AdminMiddleware::class)->group(function () {
 
     //ADMINS
     Route::get('/admins', [AdminController::class, 'adminsIndex'])->name('admin.admins.index');
+    Route::delete('/admins/delete/{id}', [AdminController::class, 'destroy'])->name('admin.admins.delete');
 });
