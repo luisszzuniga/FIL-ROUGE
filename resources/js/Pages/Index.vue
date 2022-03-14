@@ -5,9 +5,7 @@
                 <h1 class="text-pasta-color text-6xl">PASTA TRUCK</h1>
                 <h2 class="text-pasta-color text-4xl pt-2">À Rennes</h2>
                 <p class="pt-4 text-xl">Venez découvrir notre unique PastaTruck dans la ville de Rennes et ses alentours.</p>
-                <a href="#" class="block bg-pasta-color w-2/3 text-center py-3 rounded-xl text-lg mt-3 hover:text-white ease-in duration-200">
-                    Nous trouver
-                </a>
+                <Link :href="route('find')" class="block bg-pasta-color w-2/3 text-center py-3 rounded-xl text-lg mt-3 hover:text-white ease-in duration-200"> Nous trouver </Link>
             </div>
 
             <div class="w-full lg:w-1/2">
@@ -64,9 +62,9 @@
 
             </div>
 
-            <a class="block plus bg-black rounded-full mx-auto mt-10 text-center align-middle" href="#">
+            <Link :href="route('menu')" class="block plus bg-black rounded-full mx-auto mt-10 text-center align-middle">
                 <i class="fa-solid fa-plus text-5xl text-pasta-color"></i>
-            </a>
+            </Link>
         </section>
     </Layout>
 </template>
@@ -74,11 +72,13 @@
 <script>
 import Layout from '../Layouts/AppLayout'
 import ArticleCardVue from '../Components/ArticleCard.vue'
+import { Link } from '@inertiajs/inertia-vue3'
 
 export default {
     components: {
         Layout,
-        Card: ArticleCardVue
+        Card: ArticleCardVue,
+        Link
     },
 
     props: {

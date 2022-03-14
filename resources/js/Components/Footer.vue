@@ -4,11 +4,11 @@
             <div class="container mx-auto">
                 <h3 class="text-pasta-color text-2xl">Pasta-Truck.fr</h3>
                 <ul class="text-white mt-3 footer-ul">
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">La carte</a></li>
-                    <li><a href="#">Galerie Photo</a></li>
-                    <li><a href="#">Nous trouver</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><Link :href="route('index')">Accueil</Link></li>
+                    <li><Link :href="route('menu')">La carte</Link></li>
+                    <li><Link :href="route('photos')">Galerie Photo</Link></li>
+                    <li><Link :href="route('find')">Nous trouver</Link></li>
+                    <li><Link :href="route('contact')">Contact</Link></li>
                 </ul>
             </div>
         </div>
@@ -24,8 +24,12 @@
 </template>
 
 <script>
-export default {
+import { Link } from '@inertiajs/inertia-vue3'
 
+export default {
+    components: {
+        Link
+    }
 }
 </script>
 

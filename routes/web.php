@@ -11,6 +11,8 @@ use App\Http\Controllers\LoyaltyController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PlateSizeController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +26,19 @@ use App\Http\Controllers\PlateSizeController;
 */
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    $user = Auth::user();
+    return Inertia::render('Dashboard', [
+        'loyalty_points' => $user->loyalty_points
+    ]);
 })->name('dashboard');
 
 
 //FRONT
 Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::get('/menu', [FrontController::class, 'menu'])->name('menu');
+Route::get('/photos', [FrontController::class, 'photos'])->name('photos');
+Route::get('/nous-trouver', [FrontController::class, 'find'])->name('find');
+Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
 // ADMIN
 Route::prefix('/admin')->middleware(AdminMiddleware::class)->group(function () {
