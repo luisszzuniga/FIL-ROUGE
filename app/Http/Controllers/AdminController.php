@@ -41,7 +41,7 @@ class AdminController extends Controller
         $adminsIds = Admin::all();
         $admins = [];
         foreach ($adminsIds as $adminId) {
-            $admins[] = User::find($adminId->id);
+            $admins[] = User::find($adminId->user_id);
         }
 
         return Inertia::render('Admin/Admins', [
@@ -58,7 +58,19 @@ class AdminController extends Controller
      */
     public function store(StoreAdminRequest $request)
     {
-        //
+        $users = User::all();
+
+        $search = $request->email;
+
+        $users = $users->filter(function ($value) use ($search) {
+            return str_contains($value, $search);
+        });
+
+        $admin = Admin::create([
+            "user_id" => current(current($users))->id
+        ]);
+
+        return redirect(route("admin.admins.index"));
     }
 
 
@@ -68,13 +80,16 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(int $id)
     {
         $admins = Admin::all();
         if ($admins->count() < 2) {
-            return redirect(route('admin.admins.index'))->with([
-                'error' => 'Vous ne pouvez pas supprimer le dernier administrateur du site.'
-            ]);
+            return redirect(route('admin.admins.index'));
         }
+
+        $admins = Admin::where('user_id', $id)->get();
+        $admins[0]->delete();
+
+        return redirect(route('admin.admins.index'));
     }
 }

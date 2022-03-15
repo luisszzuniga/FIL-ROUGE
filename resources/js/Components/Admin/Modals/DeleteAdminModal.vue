@@ -20,7 +20,7 @@
                         </h3>
                         <div class="mt-2">
                         <p class="text-sm text-gray-500">
-                            Êtes-vous sûr de vouloir supprimer l'administrateur {{ admin.email }}? Vous pourrez toujours l'ajouter de nouveau.
+                            Êtes-vous sûr de vouloir supprimer l'administrateur {{ admin.email }}? Vous pourrez toujours l'ajouter de nouveau. Si cet admin est le dernier, la suppression n'aboutira pas.
                         </p>
                         </div>
                     </div>
