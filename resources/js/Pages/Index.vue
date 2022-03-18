@@ -9,7 +9,7 @@
             </div>
 
             <div class="w-full lg:w-1/2">
-                <img class="h-2/3 lg:w-2/3 object-cover mt-10 lg:mt-0 w-full lg:ml-auto" src="../../images/header.jpg" alt="">
+                <img class="mb-10 w-2/3 lg:w-4/5 object-cover mt-10 lg:mt-0 w-full lg:ml-auto" src="../../images/truck.png" alt="">
             </div>
         </main>
         <section class="bg-black">

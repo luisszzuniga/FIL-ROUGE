@@ -7,15 +7,15 @@
             <h2 class="text-3xl text-center mt-10">Nos Menus</h2>
 
             <div class="mt-10">
-                <h3 class="text-center text-xl font-bold">Menu Étudiant : PLAT + BOISSON + DESSERT 10 €</h3>
+                <h3 class="text-center text-xl font-bold">Menu Étudiant : PLAT + BOISSON + DESSERT 7,50 €</h3>
                 <span class="uppercase text-gray-600 text-md block text-center">uniquement en taille M</span>
             </div>
              <div class="mt-10">
-                <h3 class="text-center text-xl font-bold">Menu DUO : PLAT + BOISSON 8 €</h3>
+                <h3 class="text-center text-xl font-bold">Menu DUO : PLAT + BOISSON 6,50 €</h3>
                 <span class="uppercase text-gray-600 text-md block text-center">uniquement en taille M</span>
             </div>
              <div class="my-10">
-                <h3 class="text-center text-xl font-bold">Menu Salade : SALADE + BOISSON + DESSERT 9 €</h3>
+                <h3 class="text-center text-xl font-bold">Menu Salade : SALADE + BOISSON + DESSERT 7 €</h3>
                 <span class="uppercase text-gray-600 text-md block text-center">uniquement en taille M</span>
             </div>
             <div class="w-1/2 h-px bg-gray-400 mx-auto"></div>
